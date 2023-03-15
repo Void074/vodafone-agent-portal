@@ -1,8 +1,7 @@
-<script>
-</script>
 <svelte:head>
-  <title>About</title>
+  <title>Dashboard</title>
 </svelte:head>
-<section>
-  <p>Hello from about</p>
-</section>
+<hgroup class="text--center">
+  <h3>Customers</h3>
+  <p>Registerd SIM customers</p>
+</hgroup>

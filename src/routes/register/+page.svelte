@@ -13,7 +13,7 @@
   </hgroup>
   <Register/>
   <section>
-      <a href="/">click here to return</a>
+      <a href="/">Return to Login Page</a>
   </section>
 </div>
 

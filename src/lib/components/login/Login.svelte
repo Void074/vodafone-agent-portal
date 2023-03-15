@@ -9,8 +9,8 @@
         <img src={src} alt="vodafone-logo.png"/>
       </div>
       <hgroup>
-        <h3 class="text--center">Agent Portal</h3>
         <h4 class="text--center">Together we can</h4>
+        <h3 class="text--center">Agent Portal</h3>
       </hgroup>
     </div>
     <div>
@@ -19,10 +19,8 @@
         <input type="text" name="username" id="username" placeholder="Username">
         <input type="password" name="current_password" id="current_password" placeholder="Password">
         <button class="contrast" on:click|preventDefault>Sign in</button>
+        <a class="text--center" href="/register">Register Here</a>
       </form>
-      <!-- svelte-ignore a11y-missing-content -->
-      <!-- svelte-ignore a11y-missing-attribute -->
-      <p class="text--center">Don't have an account, <a href="/register">click here to register<a/></p>
     </div> 
   </article>
 </div>
