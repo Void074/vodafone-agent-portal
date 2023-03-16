@@ -1,3 +1,7 @@
+<script>
+    import Login from "$lib/components/login/Login.svelte";
+
+</script>
 <svelte:head>
     <title>SIM Registration Form</title>
 </svelte:head>
@@ -10,6 +14,10 @@
         <input type="text" name="first_name" id="first_name" placeholder="First Name">
         <input type="text" name="last_name" id="last_name" placeholder="Last Name">
     </div>
+    <label for="dob">
+        Date of Birth
+        <input type="date" name="dob" id="dob" />
+    </label>
     <fieldset>
         <legend>Gender</legend>
         <label for="male">

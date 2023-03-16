@@ -17,6 +17,8 @@
 
 <style>
   nav {
+    position: relative;
+    top: 65px;
     padding: 10px;
     width: 300px;
     height: 100vh;
