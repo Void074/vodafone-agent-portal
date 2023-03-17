@@ -1,9 +1,16 @@
 <script>
+  import Register from "$lib/components/register/AgentForm.svelte";
   let src = 'images/vodafone-logo.png'
-  import Register from "$lib/components/register/Register.svelte";
+
+  export let data
+  const { name, role } = data
 </script>
+<svelte:head>
+  <title>Agent Registration Form</title>
+</svelte:head>
 
 <div class="register__section">
+  <p>You are logged in as {name} with a user role of {role}</p>
   <div class="logo">
     <img src={src} alt="vodafone-logo.png" width="300" height="400"/>
   </div>
