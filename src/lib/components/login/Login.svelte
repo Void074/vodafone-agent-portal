@@ -21,9 +21,14 @@
         <button class="contrast">Sign in</button>
       </form>
         {#if $$slots.error_message}
-          <slot class="error" name="error_message">
-          </slot>
+          <div class="error">
+            <slot class="error" name="error_message">
+            </slot>
+          </div>
         {/if}
+      <div class="text--center">
+        <a href="/register">Click here to Regsiter</a>
+      </div>
     </div> 
   </article>
 </div>
@@ -32,8 +37,7 @@
   .error {
     padding: 15px;
     text-align: center;
-    background-color: red;
-    color: white; 
+    color: red; 
   }
 
   .login__logo--centered {
