@@ -14,18 +14,28 @@
       </hgroup>
     </div>
     <div>
-      <form>
-        <h5 class="text--center">Enter your credentials</h5>
+      <h5 class="text--center">Enter your credentials</h5>
+      <form method="POST" action="?/user_login">
         <input type="text" name="username" id="username" placeholder="Username">
         <input type="password" name="current_password" id="current_password" placeholder="Password">
-        <button class="contrast" on:click|preventDefault>Sign in</button>
-        <a class="text--center" href="/register">Register Here</a>
+        <button class="contrast">Sign in</button>
       </form>
+        {#if $$slots.error_message}
+          <slot class="error" name="error_message">
+          </slot>
+        {/if}
     </div> 
   </article>
 </div>
 
 <style>
+  .error {
+    padding: 15px;
+    text-align: center;
+    background-color: red;
+    color: white; 
+  }
+
   .login__logo--centered {
     display: flex;
     margin-bottom: 15px;

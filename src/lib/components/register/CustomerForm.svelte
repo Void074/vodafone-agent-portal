@@ -1,4 +1,4 @@
-<form>
+<form method="POST" action="?/customer_register">
   <hgroup class="text--center">
       <h3>SIM Registration Form</h3>
       <p>Enter cusomter details below</p>
@@ -23,12 +23,13 @@
       </label>
   </fieldset>
   <input type="text" name="msisdn" id="msidsn" placeholder="Mobile Number">
-  <select id="province">
+  <select name="province" id="province">
       <option value="" selected>Select Province</option>
-      <option value="central">Central</option>
-      <option value="esp">East Sepik</option>
-      <option value="gulf">Gulf</option>
-      <option value="morobe">Morobe</option>
-      <option value="ncd">National Capital District</option>
+      <option value="Central">Central</option>
+      <option value="East Sepik">East Sepik</option>
+      <option value="Gulf">Gulf</option>
+      <option value="Morobe">Morobe</option>
+      <option value="National Captial District">National Capital District</option>
   </select>
+  <button class="contrast">Register</button>
 </form>

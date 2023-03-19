@@ -11,7 +11,10 @@
     <li><a class="link" href="/dashboard">Customers</a></li>
     <li><a class="link" href="/dashboard/search">Search</a></li>
     <li><a class="link" href="/dashboard/register_simcard">SIM Registration</a></li>
-    <li><a class="link" href="/">Logout</a></li>
+    {#if $$slots.logout}
+      <slot name="logout">
+      </slot>
+    {/if}
   </ul>
 </nav>
 

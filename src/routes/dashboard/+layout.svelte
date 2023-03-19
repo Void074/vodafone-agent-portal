@@ -4,7 +4,13 @@
 
 <div class="dashboard__grid">
     <aside>
-        <SideBarNav/>
+        <SideBarNav>
+            <li slot="logout">
+                <form action="?/logout" method="POST">
+                    <button class="contrast" type="submit">Logout</button>
+                </form>
+            </li>
+        </SideBarNav>
     </aside>
     <section class="col">
         <slot></slot>
