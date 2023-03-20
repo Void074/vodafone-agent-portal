@@ -16,8 +16,8 @@
     <div>
       <h5 class="text--center">Enter your credentials</h5>
       <form method="POST" action="?/user_login">
-        <input type="text" name="username" id="username" placeholder="Username">
-        <input type="password" name="current_password" id="current_password" placeholder="Password">
+        <input type="text" name="username" id="username" placeholder="Username" required>
+        <input type="password" name="current_password" id="current_password" placeholder="Password" required>
         <button class="contrast">Sign in</button>
       </form>
         {#if $$slots.error_message}

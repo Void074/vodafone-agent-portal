@@ -1,4 +1,5 @@
-import { redirect } from "@sveltejs/kit"
+import { redirect, fail } from "@sveltejs/kit"
+
 export const actions = {
   user_login: async ({ cookies, request}) => {
       const data = await request.formData()
@@ -9,6 +10,15 @@ export const actions = {
       if (username == "gdorke" && password == "12345678"){
         cookies.set("access", "true", {path:"/", sameSite: "strict"})
         throw redirect(302, "/dashboard")
+      }
+        
+
+      if (!username){
+        return fail(400, { message: "username required!"}, password)
+      }
+
+      if (!password){
+        return fail(400, { message: "password required"}, username)
       }
 
       return {
