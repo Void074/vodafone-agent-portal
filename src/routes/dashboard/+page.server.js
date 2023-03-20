@@ -14,5 +14,14 @@ export const actions = {
     })
 
     throw redirect(302, "/")
+  },
+
+  logout: async ({ cookies }) => {
+    cookies.set("access", "", {
+      path: "/",
+      expires: new Date(0)
+    })
+
+    throw redirect(302, "/")
   }
 }
