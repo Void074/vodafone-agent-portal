@@ -5,6 +5,7 @@ export const load = ({ cookies }) => {
     throw redirect(307, `/`)
   }
 }
+
 export const actions = {
   result: async ({request}) => {
     const data = await request.formData()
@@ -13,5 +14,14 @@ export const actions = {
     return {
       name
     }
+  },
+
+  logout: async ({ cookies }) => {
+    cookies.set("access", "", {
+      path: "/",
+      expires: new Date(0)
+    })
+
+    throw redirect(302, "/")
   }
 }

@@ -57,7 +57,7 @@
   }
 
   .login__content {
-    height: 450px;
+    height: 460px;
     width: 100%;
   }
 </style>
