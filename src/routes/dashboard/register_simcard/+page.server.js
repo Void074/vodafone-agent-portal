@@ -1,4 +1,4 @@
-import { redirect } from '@sveltejs/kit'
+import { redirect, fail } from '@sveltejs/kit'
 
 export const load = ({ cookies }) => {
   if ( !cookies.get("access")){
@@ -15,6 +15,30 @@ export const actions = {
     const gender = data.get('gender')
     const mobile_number = data.get('msisdn')
     const province = data.get('province')
+
+    if(!first_name){
+      throw fail(400, {message: "first name require"}, last_name, dob, gender, mobile_number, province)
+    }
+    
+    if(!last_name){
+      throw fail(400, {message: "first name require"}, first_name, dob, gender, mobile_number, province)
+    }
+
+    if(!dob){
+      throw fail(400, {message: "first name require"}, first_name, last_name, gender, mobile_number, province)
+    }
+
+    if(!gender){
+      throw fail(400, {message: "first name require"}, first_name, last_name, dob, mobile_number, province)
+    }
+
+    if(!mobile_number){
+      throw fail(400, {message: "first name require"}, first_name, last_name, dob, gender, province)
+    }
+
+    if(!province){
+      throw fail(400, {message: "first name require"}, first_name, last_name, dob, mobile_number)
+    }
 
     return {
       customer: {

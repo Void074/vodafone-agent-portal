@@ -4,17 +4,17 @@
       <p>Enter cusomter details below</p>
   </hgroup>
   <div class="grid">
-      <input type="text" name="first_name" id="first_name" placeholder="First Name">
-      <input type="text" name="last_name" id="last_name" placeholder="Last Name">
+      <input type="text" name="first_name" id="first_name" placeholder="First Name" required>
+      <input type="text" name="last_name" id="last_name" placeholder="Last Name" required>
   </div>
   <label for="dob">
       Date of Birth
-      <input type="date" name="dob" id="dob" />
+      <input type="date" name="dob" id="dob" required/>
   </label>
   <fieldset>
       <legend>Gender</legend>
       <label for="male">
-      <input type="radio" name="gender" id="male" value="male" checked>
+      <input type="radio" name="gender" id="male" value="male" checked >
           Male
       </label>
       <label for="female">
@@ -22,7 +22,7 @@
           Female
       </label>
   </fieldset>
-  <input type="text" name="msisdn" id="msidsn" placeholder="Mobile Number">
+  <input type="text" name="msisdn" id="msidsn" placeholder="Mobile Number" required>
   <select name="province" id="province">
       <option value="" selected>Select Province</option>
       <option value="Central">Central</option>
