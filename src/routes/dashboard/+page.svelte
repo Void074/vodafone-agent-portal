@@ -1,6 +1,5 @@
 <script>
   export let data
-  console.log(data)
 </script>
 <svelte:head>
   <title>Dashboard</title>
@@ -16,13 +15,13 @@
       <th>Province</th>
       <th></th>
     </tr>
-    <tr>
       {#each data.customers as customer }
+      <tr>
         <td>{customer.first_name} {customer.last_name}</td> 
         <td>{customer.gender}</td>
         <td>{customer.province}</td>
         <!-- svelte-ignore a11y-invalid-attribute -->
         <td><a href="#">View Info</a></td>
+      </tr>
       {/each}
-    </tr>
 </table>
