@@ -19,8 +19,8 @@
 
 <style>
     .dashboard__grid {
-        margin-top: 5%;
         display: flex;
+        margin-top: 5%;
     }
 
     .col {

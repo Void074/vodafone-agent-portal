@@ -27,7 +27,7 @@
           </div>
         {/if}
       <div class="text--center">
-        <a href="/register">Click here to Regsiter</a>
+        <a href="/register">Register Here</a>
       </div>
     </div> 
   </article>
