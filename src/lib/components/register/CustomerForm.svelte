@@ -4,12 +4,12 @@
       <p>Enter cusomter details below</p>
   </hgroup>
   <div class="grid">
-      <input type="text" name="first_name" id="first_name" placeholder="First Name" required>
-      <input type="text" name="last_name" id="last_name" placeholder="Last Name" required>
+      <input type="text" name="first_name" id="first_name" placeholder="First Name" />
+      <input type="text" name="last_name" id="last_name" placeholder="Last Name" />
   </div>
   <label for="dob">
       Date of Birth
-      <input type="date" name="dob" id="dob" required/>
+      <input type="date" name="dob" id="dob" />
   </label>
   <fieldset>
       <legend>Gender</legend>
@@ -22,7 +22,7 @@
           Female
       </label>
   </fieldset>
-  <input type="text" name="msisdn" id="msidsn" placeholder="Mobile Number" required>
+  <input type="text" name="msisdn" id="msidsn" placeholder="Mobile Number" >
   <select name="province" id="province">
       <option value="" selected>Select Province</option>
       <option value="Central">Central</option>

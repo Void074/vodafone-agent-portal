@@ -1,8 +1,6 @@
 <script>
   import Login from "$lib/components/login/Login.svelte";
   export let form
-  export let data
-  console.log(data)
 </script>
 <svelte:head>
   <title>Vodafone Agent Portal</title>
