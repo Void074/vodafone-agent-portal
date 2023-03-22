@@ -1,8 +1,6 @@
 <script>
   let src = 'images/vodafone-logo.png'
-  
   export let form
-  console.log(form)
 </script>
 
 <svelte:head>
@@ -23,7 +21,7 @@
     </div>
   {/if}
   <!-- importing register form here -->
-  <form method="POST" action="?/register_user" class="register__form">
+  <form method="POST" action="?/agent" class="register__form">
     <input type="text" name="first_name" value={form?.first_name ?? ''} id="first_name" placeholder="First name"/>
     <input type="text" name="last_name" value={form?.last_name ?? ''} id="last_name" placeholder="Last name" />
     <input type="text" name="user_name" value={form?.user_name ?? '' } id="username" placeholder="Username" />
@@ -39,6 +37,7 @@
 
 <style>
   .error {
+    padding: 10px;
     color: red;
   }
 

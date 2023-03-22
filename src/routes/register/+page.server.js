@@ -1,7 +1,8 @@
 import { fail } from '@sveltejs/kit'
+import  bcrypt from "bcrypt"
 
 export const actions = {
-  register_user: async ({ request }) => {
+  agent: async ({ request }) => {
     const data = await request.formData()
     const first_name = data.get('first_name')
     const last_name = data.get('last_name')
@@ -10,6 +11,7 @@ export const actions = {
 
     if(!first_name){
       return fail(400,{
+        success: false,
         missing: true, 
         message: "first name required",
         last_name,
@@ -20,6 +22,7 @@ export const actions = {
 
     if(!last_name){
       return fail(400, {
+        success: false,
         missing: true,
         message: "last name required",
         first_name,
@@ -30,6 +33,7 @@ export const actions = {
 
     if(!user_name){
       return fail(400, {
+        success: false,
         missing: true,
         message: "username required",
         first_name,
@@ -39,14 +43,31 @@ export const actions = {
     }
 
     if(!password){
-      return fail(400, {message: "password required"}, first_name, last_name, user_name)
+      return fail(400, {
+        success: false,
+        missing: true,
+        message: "password required", 
+        first_name, 
+        last_name, 
+        user_name
+      })
     }
 
-    return {
-      first_name,
-      last_name,
-      user_name,
-      password
-    }
+    const hashedPwd = await bcrypt.hash(password, 10)
+    const response = await fetch('http://localhost:3001/api/users', {
+      method: 'POST',
+      body: JSON.stringify({
+        first_name,
+        last_name,
+        user_name,
+        hashedPwd
+      }),
+      headers: {
+        'content-type': 'application/json'
+      }
+    })
+
+    const user =  await response.json()
+    return user
   }
 }

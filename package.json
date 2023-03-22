@@ -1,5 +1,5 @@
 {
-	"name": "simcard-registration-portal-sveltekit-build",
+	"name": "vodafone-agent-portal",
 	"version": "0.0.1",
 	"private": true,
 	"scripts": {
@@ -16,6 +16,7 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"@picocss/pico": "^1.5.7"
+		"@picocss/pico": "^1.5.7",
+		"bcrypt": "^5.1.0"
 	}
 }
