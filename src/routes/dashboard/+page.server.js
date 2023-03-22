@@ -6,13 +6,13 @@ export const load = ({ cookies, fetch }) => {
   }
 
   const fetchCustomer = async () => {
-    const res = await fetch('https://dapper-bunny-7f59c6.netlify.app/api/customers')
-    const results = await res.json()
-    return results
+    const res = await fetch('/api/customers')
+    const customers = await res.json()
+    return customers.data
   }
 
   return {
-    results: fetchCustomer()
+    customers: fetchCustomer()
   }
 } 
 

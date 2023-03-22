@@ -1,6 +1,5 @@
 <script>
   export let data
-  let { results } = data
 </script>
 <svelte:head>
   <title>Dashboard</title>
@@ -8,20 +7,21 @@
 <hgroup class="text--center">
   <h3>Customers</h3>
   <p>Registerd SIM customers</p>
-  <table>
+</hgroup>
+<table>
     <tr>
       <th>Name</th>
-      <th>Date of Birth</th>
-      <th>Mobile Number</th>
+      <th>Gender</th>
       <th>Province</th>
+      <th></th>
     </tr>
-  </table>
-  {#each results as result}
-    <tr>
-      <td>{result.first_name} {result.last_name}</td>
-      <td>{result.date_of_birth}</td>
-      <td>{result.mobile_number}</td>
-      <td>{result.province}</td>
-    </tr>
-  {/each}
-</hgroup>
+      {#each data.customers as customer }
+      <tr>
+        <td>{customer.first_name} {customer.last_name}</td> 
+        <td>{customer.gender}</td>
+        <td>{customer.province}</td>
+        <!-- svelte-ignore a11y-invalid-attribute -->
+        <td><a href="#">View Info</a></td>
+      </tr>
+      {/each}
+</table>
