@@ -6,5 +6,7 @@
 
 <main class="container">
   <slot></slot>
-  <Footer/>
+  <section>
+    <Footer/>
+  </section>
 </main>

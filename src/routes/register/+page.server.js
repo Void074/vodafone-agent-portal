@@ -49,14 +49,14 @@ export const actions = {
       })
     }
 
-    //const hashedPwd = await bcrypt.hash(password, 10)
+    const hashedPassword = await bcrypt.hash(password, 10)
     const response = await fetch('https://dapper-bunny-7f59c6.netlify.app/api/users', {
       method: 'POST',
       body: JSON.stringify({
         first_name,
         last_name,
         user_name,
-        password
+        hashedPassword
       }),
       headers: {
         'content-type': 'application/json'

@@ -3,7 +3,7 @@
 </script>
 <hgroup class="text--center">
   <h3>Customer Search</h3>
-  <p>Enter name of customer</p>
+  <p>Enter mobile number of customer</p>
 </hgroup>
 <form method="POST" action="?/result">
       <div class="grid">

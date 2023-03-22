@@ -1,7 +1,6 @@
 <script>
   let src = 'images/vodafone-logo.png'
   export let form
-  console.log(form)
 </script>
 
 <svelte:head>

@@ -1,10 +1,11 @@
 <script>
   export let form
-  console.log(form)
 </script>
+
 <svelte:head>
     <title>SIM Registration Form</title>
 </svelte:head>
+
 <form method="POST" action="?/customer_register">
   <hgroup class="text--center">
       <h3>SIM Registration Form</h3>

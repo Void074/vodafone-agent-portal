@@ -24,7 +24,7 @@ export const actions = {
       }
 
       // todo(gedare): connect to database (ASAP)
-      const res = await fetch('https://dapper-bunny-7f59c6.netlify.app/api', {
+      const res = await fetch('http://localhost:3001/api', {
         method: 'POST',
         body: JSON.stringify({
           user_name,
@@ -39,16 +39,16 @@ export const actions = {
       let udata = {...user}
 
       if (user_name === udata.user_name){
-         cookies.set("access", "true", {path:"/", sameSite: "strict"})
-         throw redirect(302, "/dashboard")
+        console.log(udata.password)
+        const verifypassword = await bcrypt.compare(password, udata.password)
+        if(verifypassword) {
+          cookies.set("access", "true", {path:"/", sameSite: "strict"})
+          throw redirect(302, "/dashboard")
+        }
       }
       
       if(!udata.user_name){
         return fail(400, { credentials: true, message: "invalid username or password" })
       }
-      // if (user_name == "gdorke" && password == "12345678"){
-      //   cookies.set("access", "true", {path:"/", sameSite: "strict"})
-      //   throw redirect(302, "/dashboard")
-      // }
   }
 }
