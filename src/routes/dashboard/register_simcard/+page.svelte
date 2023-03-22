@@ -16,7 +16,9 @@
     </div>
   {/if}
   {#if form?.success}
-    {form.message}
+    <div class="success text--center">
+      {form.message}
+    </div>
   {/if}
   <div class="grid">
       <input type="text" name="first_name" value={form?.first_name ?? ''} id="first_name" placeholder="First Name" />
@@ -50,6 +52,10 @@
 </form>
 
 <style>
+  .success {
+    padding: 10px;
+    color: green;
+  }
   .error {
     padding: 10px;
     color: red;

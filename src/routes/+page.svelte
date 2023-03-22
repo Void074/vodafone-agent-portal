@@ -2,6 +2,7 @@
   import { enhance } from '$app/forms'
   let src = '/images/vodafone-logo.png'
   export let form
+  console.log(form)
 </script>
 
 <svelte:head>
@@ -22,16 +23,16 @@
       </div>
       <div>
         <h5 class="text--center">Enter your credentials</h5>
-        <form method="POST" action="?/user_login" use:enhance>
+        <form method="POST" action="?/user_login">
           <input type="text" name="username" id="username" value={form?.username ?? ''} placeholder="Username" />
           <input type="password" name="current_password" id="current_password" value={form?.password ?? ''} placeholder="Password" />
           <button class="contrast">Sign in</button>
+          {#if form?.credentials}
+            <div class="error">
+              {form.message}
+            </div>
+          {/if}
         </form>
-        {#if form?.message}
-          <div class="error">
-            {form.message}
-          </div>
-        {/if}
         <div class="text--center">
           <a href="/register">Register Here</a>
         </div>

@@ -1,6 +1,7 @@
 <script>
   let src = 'images/vodafone-logo.png'
   export let form
+  console.log(form)
 </script>
 
 <svelte:head>
@@ -15,8 +16,13 @@
     <h2>Agent Registration Form</h2>
     <p>Enter your details to register</p>
   </hgroup>
-  {#if form?.message}
+  {#if form?.missing}
     <div class="error text--center">
+      {form.message}
+    </div>
+  {/if}
+  {#if form?.success}
+    <div class="success text--center">
       {form.message}
     </div>
   {/if}
@@ -36,6 +42,11 @@
 </div>
 
 <style>
+  .success {
+    padding: 10px;
+    color: green;
+  }
+
   .error {
     padding: 10px;
     color: red;

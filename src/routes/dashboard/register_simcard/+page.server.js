@@ -90,7 +90,7 @@ export const actions = {
     /* end of validation */
     /* TODO(Gedare): find a better way of validating form fields */
 
-    const res = await fetch('http://localhost:3001/api/customers', {
+    const res = await fetch('https://dapper-bunny-7f59c6.netlify.app/api/customers', {
       method: 'POST',
       body: JSON.stringify({
         first_name,
@@ -99,7 +99,7 @@ export const actions = {
         dob,
         mobile_number,
         province,
-        user_id: 2
+        user_id: "2"
       }),
       headers: {
         'content-type': 'application/json'

@@ -11,7 +11,6 @@ export const actions = {
 
     if(!first_name){
       return fail(400,{
-        success: false,
         missing: true, 
         message: "first name required",
         last_name,
@@ -22,7 +21,6 @@ export const actions = {
 
     if(!last_name){
       return fail(400, {
-        success: false,
         missing: true,
         message: "last name required",
         first_name,
@@ -33,7 +31,6 @@ export const actions = {
 
     if(!user_name){
       return fail(400, {
-        success: false,
         missing: true,
         message: "username required",
         first_name,
@@ -44,7 +41,6 @@ export const actions = {
 
     if(!password){
       return fail(400, {
-        success: false,
         missing: true,
         message: "password required", 
         first_name, 
@@ -53,21 +49,21 @@ export const actions = {
       })
     }
 
-    const hashedPwd = await bcrypt.hash(password, 10)
-    const response = await fetch('http://localhost:3001/api/users', {
+    //const hashedPwd = await bcrypt.hash(password, 10)
+    const response = await fetch('https://dapper-bunny-7f59c6.netlify.app/api/users', {
       method: 'POST',
       body: JSON.stringify({
         first_name,
         last_name,
         user_name,
-        hashedPwd
+        password
       }),
       headers: {
         'content-type': 'application/json'
       }
     })
 
-    const user =  await response.json()
+    const user = await response.json()
     return user
   }
 }
