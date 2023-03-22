@@ -17,6 +17,7 @@
 	"type": "module",
 	"dependencies": {
 		"@picocss/pico": "^1.5.7",
-		"bcrypt": "^5.1.0"
+		"bcrypt": "^5.1.0",
+		"dotenv": "^16.0.3"
 	}
 }

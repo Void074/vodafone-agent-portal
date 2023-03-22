@@ -6,12 +6,14 @@ specifiers:
   '@sveltejs/adapter-netlify': 1.0.0-next.88
   '@sveltejs/kit': ^1.13.0
   bcrypt: ^5.1.0
+  dotenv: ^16.0.3
   svelte: ^3.57.0
   vite: ^4.2.1
 
 dependencies:
   '@picocss/pico': 1.5.7
   bcrypt: 5.1.0
+  dotenv: 16.0.3
 
 devDependencies:
   '@sveltejs/adapter-auto': 2.0.0_@sveltejs+kit@1.13.0
@@ -634,6 +636,11 @@ packages:
   /devalue/4.3.0:
     resolution: {integrity: sha512-n94yQo4LI3w7erwf84mhRUkUJfhLoCZiLyoOZ/QFsDbcWNZePrLwbQpvZBUG2TNxwV3VjCKPxkiiQA6pe3TrTA==}
     dev: true
+
+  /dotenv/16.0.3:
+    resolution: {integrity: sha512-7GO6HghkA5fYG9TYnNxi14/7K9f5occMlp3zXAuSxn7CKCxt9xbNWG7yF8hTCSUchlfWSe3uLmlPfigevRItzQ==}
+    engines: {node: '>=12'}
+    dev: false
 
   /emoji-regex/8.0.0:
     resolution: {integrity: sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==}
