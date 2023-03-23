@@ -31,7 +31,7 @@ export const actions = {
           password
         }),
         headers: {
-          'content-type': 'application/json'
+          'Content-Type': 'application/json',
         }
       })
 
@@ -39,16 +39,17 @@ export const actions = {
       let udata = {...user}
 
       if (user_name === udata.user_name){
-        console.log(udata.password)
         const verifypassword = await bcrypt.compare(password, udata.password)
         if(verifypassword) {
           cookies.set("access", "true", {path:"/", sameSite: "strict"})
           throw redirect(302, "/dashboard")
+        }else{
+          return fail(400, { credentials: true, message: "Invalid username or password"})
         }
       }
       
       if(!udata.user_name){
-        return fail(400, { credentials: true, message: "invalid username or password" })
+        return fail(400, { credentials: true, message: "Invalid username or password" })
       }
   }
 }

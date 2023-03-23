@@ -1,35 +1,69 @@
 <script>
-  export let form
+  import { onMount } from 'svelte'
 
-  async function handleSubmit(event){
-    const data = new FormData(event.target)
-    const mobile = data.get('mobile')
+  let query = []
+  export let serach_query = ''
 
-    const res = await fetch(`https://dapper-bunny-7f59c6.netlify.app/api/customers/search?mobile=${mobile}`, {
+
+  async function fetchData(){
+    const res = await fetch(`https://dapper-bunny-7f59c6.netlify.app/api/customers/search?mobile=${serach_query}`, {
       method: 'POST',
       headers: {
-        'mode': 'CORS',
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': 'https://dapper-bunny-7f59c6.netlify.app'
       }
     })
 
-    let profile = await res.json()
-    console.log(profile)
-    return profile
+    query = await res.json()
+    console.log(query)
+    return query
   }
 
-  console.log(form)
+  // -> Need to better understand this line of coder
+  onMount(() => {
+    fetchData()
+  })
+
 </script>
+
 <hgroup class="text--center">
   <h3>Customer Search</h3>
   <p>Enter mobile number of customer</p>
 </hgroup>
-<form method="POST" on:submit|preventDefault={handleSubmit}>
+<form method="POST" on:submit|preventDefault={fetchData}>
   <div class="grid">
-    <input type="search" name="mobile" id="search" placeholder="search...">
+    <input type="search" name="mobile" id="search" bind:value={serach_query} placeholder="search...">
     <button class="contrast">Search</button>
   </div>
   <section>
-    
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Province</th>
+        <th></th>
+      </tr>
+      <tr>
+        {#if query.length}
+          {#each query as q}
+           <td>{q.first_name} {q.last_name}</td>
+           <td>{q.province}</td>
+           <!-- svelte-ignore a11y-invalid-attribute -->
+           <td><a href="#">View Profile</a></td>
+          {/each}
+        {:else}
+          <div class="message">
+            <td span=2>No results to display</td>
+          </div>
+        {/if}
+      </tr>
+    </table>
   </section>
 </form>
+
+
+<style>
+  .message {
+    padding: 20px;
+    text-align: center;
+  }
+</style>
