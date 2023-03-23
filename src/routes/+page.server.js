@@ -42,7 +42,7 @@ export const actions = {
         const verifypassword = await bcrypt.compare(password, udata.password)
         if(verifypassword) {
           cookies.set("access", "true", {path:"/", sameSite: "strict"})
-          throw redirect(302, "/dashboard")
+          throw redirect(302, "/agents/dashboard")
         }else{
           return fail(400, { credentials: true, message: "Invalid username or password"})
         }

@@ -8,9 +8,9 @@
     </li>
   </ul>
   <ul>
-    <li><a class="link" href="/dashboard">Customers</a></li>
-    <li><a class="link" href="/dashboard/search">Search</a></li>
-    <li><a class="link" href="/dashboard/register_simcard">SIM Registration</a></li>
+    <li><a class="link" href="/agents/dashboard">Customers</a></li>
+    <li><a class="link" href="/agents/search">Customer Search</a></li>
+    <li><a class="link" href="/agents/register">Register Mobile Number</a></li>
     {#if $$slots.logout}
       <slot name="logout">
       </slot>

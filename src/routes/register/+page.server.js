@@ -7,7 +7,7 @@ export const actions = {
     const first_name = data.get('first_name')
     const last_name = data.get('last_name')
     const user_name = data.get('user_name')
-    const password = data.get('verify_password')
+    const password = data.get('password')
 
     if(!first_name){
       return fail(400,{
