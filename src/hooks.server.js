@@ -10,13 +10,13 @@ export const handle = async ({ resolve, event }) => {
       return new Response(null, {
         headers: {
           'Access-Control-Allow-Methods': 'POST, GET, OPTIONS, DELETE',
-          'Access-Control-Allow-Origin': 'https://dapper-bunny-7f59c6.netlify.app',
+          'Access-Control-Allow-Origin': '*',
           'Access-Control-Allow-Header': 'Content-Type'
         }
       });
     }
 
-    response.headers.append('Access-Control-Allow-Origin', `https://dapper-bunny-7f59c6.netlify.app`);
+    response.headers.append('Access-Control-Allow-Origin', `*`);
   }
 
   return response;
