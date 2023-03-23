@@ -7,15 +7,6 @@ export const load = ({ cookies }) => {
 }
 
 export const actions = {
-  result: async ({request}) => {
-    const data = await request.formData()
-    const name = data.get('name')
-
-    return {
-      name
-    }
-  },
-
   logout: async ({ cookies }) => {
     cookies.set("access", "", {
       path: "/",

@@ -24,7 +24,7 @@ export const actions = {
       }
 
       // todo(gedare): connect to database (ASAP)
-      const res = await fetch('http://localhost:3001/api', {
+      const res = await fetch('https://dapper-bunny-7f59c6.netlify.app/api/', {
         method: 'POST',
         body: JSON.stringify({
           user_name,
