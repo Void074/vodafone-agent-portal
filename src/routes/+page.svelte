@@ -25,6 +25,11 @@
           <input type="text" name="username" id="username" value={form?.username ?? ''} placeholder="Username" />
           <input type="password" name="current_password" id="current_password" value={form?.password ?? ''} placeholder="Password" />
           <button class="contrast">Sign in</button>
+          {#if form?.missing}
+            <div class="error">
+              {form.message}
+            </div>
+          {/if}
           {#if form?.credentials}
             <div class="error">
               {form.message}
