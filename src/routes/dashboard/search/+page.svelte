@@ -10,7 +10,7 @@
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': 'https://dapper-bunny-7f59c6.netlify.app'
+        'Access-Control-Allow-Origin': 'https://vodafone-agent-portal.netlify.app'
       }
     })
 
