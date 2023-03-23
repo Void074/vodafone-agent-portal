@@ -1,15 +1,17 @@
 import { redirect, fail } from "@sveltejs/kit"
+import bcrypt from "bcrypt"
 
 export const actions = {
   user_login: async ({ cookies, request}) => {
       const data = await request.formData()
-      const username = data.get('username')
+      const user_name = data.get('username')
       const password = data.get('current_password')
 
-      if (!username){
+      if (!user_name){
         return fail(400, { 
           message: "Username required!", 
-          missing: true, password
+          missing: true, 
+          password
         })
       }
 
@@ -17,25 +19,36 @@ export const actions = {
         return fail(400, { 
           message: "Password required", 
           missing: true, 
-          username
+          user_name
         })
       }
 
       // todo(gedare): connect to database (ASAP)
-      // const fetctUser = async() => {
-      //   const res = await fetch('/api/authenticate')
-      //   const customers = await res.json()
-      // }
+      const res = await fetch('https://dapper-bunny-7f59c6.netlify.app/api/', {
+        method: 'POST',
+        body: JSON.stringify({
+          user_name,
+          password
+        }),
+        headers: {
+          'content-type': 'application/json'
+        }
+      })
 
-      if (username == "gdorke" && password == "12345678"){
-        cookies.set("access", "true", {path:"/", sameSite: "strict"})
-        throw redirect(302, "/dashboard")
+      let user = await res.json()
+      let udata = {...user}
+
+      if (user_name === udata.user_name){
+        console.log(udata.password)
+        const verifypassword = await bcrypt.compare(password, udata.password)
+        if(verifypassword) {
+          cookies.set("access", "true", {path:"/", sameSite: "strict"})
+          throw redirect(302, "/dashboard")
+        }
       }
-        
-
-
-      return {
-        message: "Invalid username or password"
+      
+      if(!udata.user_name){
+        return fail(400, { credentials: true, message: "invalid username or password" })
       }
   }
 }
