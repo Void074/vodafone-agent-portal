@@ -2,12 +2,12 @@ import { fail } from '@sveltejs/kit'
 import  bcrypt from "bcrypt"
 
 export const actions = {
-  agent: async ({ request }) => {
+  register: async ({ request }) => {
     const data = await request.formData()
     const first_name = data.get('first_name')
     const last_name = data.get('last_name')
     const user_name = data.get('user_name')
-    const password = data.get('verify_password')
+    const password = data.get('password')
 
     if(!first_name){
       return fail(400,{
@@ -64,6 +64,16 @@ export const actions = {
     })
 
     const user = await response.json()
-    return user
+    let udata = {...user}
+    console.log(udata)
+    if(user_name === udata.user_name){
+      return fail(400, { success: true, message: "Username already taken, please uses a different username!"})
+    }
+
+    return {
+      success: false,
+      message: "You have successfully registered"
+    }
+
   }
 }

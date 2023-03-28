@@ -36,13 +36,13 @@ export const actions = {
       })
 
       let user = await res.json()
-      let udata = {...user}
+      let u = {...user}
 
-      if (user_name === udata.user_name){
-        const verifypassword = await bcrypt.compare(password, udata.password)
+      if (user_name === u.user_name){
+        const verifypassword = await bcrypt.compare(password, u.password)
         if(verifypassword) {
           cookies.set("access", "true", {path:"/", sameSite: "strict"})
-          throw redirect(302, "/dashboard")
+          throw redirect(302, "/agents/dashboard")
         }else{
           return fail(400, { credentials: true, message: "Invalid username or password"})
         }

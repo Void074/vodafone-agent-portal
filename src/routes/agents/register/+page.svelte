@@ -1,4 +1,5 @@
 <script>
+	import { enhance } from '$app/forms';
   export let form
 </script>
 
@@ -6,7 +7,7 @@
     <title>SIM Registration Form</title>
 </svelte:head>
 
-<form method="POST" action="?/customer_register">
+<form method="POST" action="?/customer_register" use:enhance>
   <hgroup class="text--center">
       <h3>SIM Registration Form</h3>
       <p>Enter cusomter details below</p>
@@ -49,6 +50,7 @@
       <option value="Morobe">Morobe</option>
       <option value="National Captial District">National Capital District</option>
   </select>
+  <input type="text" name="address" id="address" value={form?.address ?? ''} placeholder="Address">
   <button class="contrast">Register</button>
 </form>
 

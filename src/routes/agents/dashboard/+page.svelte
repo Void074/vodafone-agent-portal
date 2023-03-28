@@ -1,12 +1,14 @@
 <script>
   export let data
 </script>
+
 <svelte:head>
   <title>Dashboard</title>
 </svelte:head>
+
 <hgroup class="text--center">
   <h3>Customers</h3>
-  <p>Registerd SIM customers</p>
+  <p>Registerd customers</p>
 </hgroup>
 <table>
     <tr>
@@ -20,8 +22,7 @@
         <td>{customer.first_name} {customer.last_name}</td> 
         <td>{customer.gender}</td>
         <td>{customer.province}</td>
-        <!-- svelte-ignore a11y-invalid-attribute -->
-        <td><a href="#">View Info</a></td>
+        <td><a href="/agents/dashboard/{customer.id}">View Info</a></td>
       </tr>
       {/each}
 </table>

@@ -14,7 +14,7 @@ export const load = ({ cookies, fetch }) => {
   return {
     customers: fetchCustomer()
   }
-} 
+}
 
 export const actions = {
   logout: async ({ cookies }) => {

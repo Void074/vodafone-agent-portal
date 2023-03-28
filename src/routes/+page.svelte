@@ -1,4 +1,5 @@
 <script>
+	import { enhance } from '$app/forms';
   let src = '/images/vodafone-logo.png'
   export let form
 </script>
@@ -21,10 +22,6 @@
       </div>
       <div>
         <h5 class="text--center">Enter your credentials</h5>
-        <form method="POST" action="?/user_login">
-          <input type="text" name="username" id="username" value={form?.username ?? ''} placeholder="Username" />
-          <input type="password" name="current_password" id="current_password" value={form?.password ?? ''} placeholder="Password" />
-          <button class="contrast">Sign in</button>
           {#if form?.missing}
             <div class="error">
               {form.message}
@@ -35,6 +32,10 @@
               {form.message}
             </div>
           {/if}
+        <form method="POST" action="?/user_login" use:enhance>
+          <input type="text" name="username" id="username" value={form?.username ?? ''} placeholder="Username" />
+          <input type="password" name="current_password" id="current_password" value={form?.password ?? ''} placeholder="Password" />
+          <button class="contrast">Sign in</button>
         </form>
         <div class="text--center">
           <a href="/register">Register Here</a>

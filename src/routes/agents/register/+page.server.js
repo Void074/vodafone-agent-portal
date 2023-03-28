@@ -15,6 +15,7 @@ export const actions = {
     const gender = data.get('gender')
     const mobile_number = data.get('msisdn')
     const province = data.get('province')
+    const address = data.get('address')
 
     if(!first_name){
       return fail(400, {
@@ -67,7 +68,7 @@ export const actions = {
     if(!mobile_number){
       return fail(400, {
         missing: true, 
-        message: "mobile number required!", 
+        message: "mobile number required", 
         first_name, 
         last_name, 
         dob, 
@@ -79,9 +80,20 @@ export const actions = {
     if(!province){
       return fail(400, {
         missing: true, 
-        message: "first name require", 
+        message: "province  required", 
         first_name, 
         last_name, 
+        dob,
+        mobile_number
+      })
+    }
+
+    if(!address){
+      return fail(400, {
+        missing: true,
+        message: "address required",
+        first_name,
+        last_name,
         dob,
         mobile_number
       })
@@ -99,6 +111,7 @@ export const actions = {
         dob,
         mobile_number,
         province,
+        address,
         user_id: "2"
       }),
       headers: {
