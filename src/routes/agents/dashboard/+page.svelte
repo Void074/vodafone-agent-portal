@@ -1,6 +1,5 @@
 <script>
   export let data
-  console.log(data)
 </script>
 
 <svelte:head>
@@ -23,7 +22,7 @@
         <td>{customer.first_name} {customer.last_name}</td> 
         <td>{customer.gender}</td>
         <td>{customer.province}</td>
-        <td><a href="/dashboard/details/{customer.id}">View Info</a></td>
+        <td><a href="/agents/dashboard/{customer.id}">View Info</a></td>
       </tr>
       {/each}
 </table>
