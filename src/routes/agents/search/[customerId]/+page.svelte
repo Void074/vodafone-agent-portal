@@ -1,5 +1,6 @@
 <script>
-  export let data
+  export let data 
+  console.log(data)
 </script>
 
 <svelte:head>
@@ -38,5 +39,5 @@
 </table>
 
 <section>
-  <a role="button" class="constrast" href="/agents/dashboard">Return to Dashboard</a>
+  <a role="button" class="constrast" href="/agents/search">Return to Search</a>
 </section>
