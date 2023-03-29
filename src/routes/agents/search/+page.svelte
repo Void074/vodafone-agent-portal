@@ -51,9 +51,7 @@
            <td><a href="/agents/search/{q.id}">View Profile</a></td>
           {/each}
         {:else}
-          <div class="message">
-            <td span=2>No results to display</td>
-          </div>
+            <td class="message text--center" colspan="3">No results to display</td>
         {/if}
       </tr>
     </table>
@@ -62,7 +60,6 @@
 
 <style>
   .message {
-    padding: 20px;
-    text-align: center;
+    padding: 45px;
   }
 </style>
