@@ -38,7 +38,7 @@
           <button class="contrast">Sign in</button>
         </form>
         <div class="text--center">
-          <a href="/register">Register Here</a>
+          <!-- <a href="/register">Register Here</a> -->
         </div>
       </div> 
     </article>
