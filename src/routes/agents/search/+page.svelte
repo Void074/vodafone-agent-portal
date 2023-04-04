@@ -47,7 +47,6 @@
           {#each query as q}
            <td>{q.first_name} {q.last_name}</td>
            <td>{q.province}</td>
-           <!-- svelte-ignore a11y-invalid-attribute -->
            <td><a href="/agents/search/{q.id}">View Profile</a></td>
           {/each}
         {:else}
