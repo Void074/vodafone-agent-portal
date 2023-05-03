@@ -12,13 +12,8 @@
   <div class="login__container">
     <article class="grid login__content">
       <div>
-        <div class="login__logo--centered">
-          <img src={src} alt="vodafone-logo.png"/>
-        </div>
-        <hgroup>
-          <h4 class="text--center">Together we can</h4>
-          <h3 class="text--center">Agent Portal</h3>
-        </hgroup>
+        <h3>Guria Labs</h3>
+        <p>Building composable Web Application and Sites</p>
       </div>
       <div>
         <h5 class="text--center">Enter your credentials</h5>
