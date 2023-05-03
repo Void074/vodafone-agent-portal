@@ -36,7 +36,7 @@ export const actions = {
       })
 
       let user = await res.json()
-      let u = {...user}
+      let u  = {...user}
 
       if (user_name === u.user_name){
         const verifypassword = await bcrypt.compare(password, u.password)
@@ -48,7 +48,7 @@ export const actions = {
         }
       }
       
-      if(!udata.user_name){
+      if(!u.user_name){
         return fail(400, { credentials: true, message: "Invalid username or password" })
       }
   }
